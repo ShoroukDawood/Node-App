@@ -1,0 +1,19 @@
+
+<div class="w-2/3  rounded-lg bg-white mx-auto my-10 p-8">
+  <div class=" flex items-center gap-3 mb-5">
+    <img [src]="post.image" [alt]="post.id" class="w-10 rounded-full">
+    <div>
+        <h2 class="font-bold text-green-500">{{post.user.name}}</h2>
+        <span>{{post.createdAt | date}}</span>
+    </div>
+   
+  </div>
+    <p>{{post.body}}</p>
+    <img [src]="post.image"  [alt]="post.id"  class="my-5 w-96 rounded-xl">
+
+<!-- comment Design -->
+ <span #showComment class="text-green-400 uppercase py-5 text-2xs font-bold cursor-pointer"> Show Comments</span>
+@defer (on interaction(showComment)) {
+    <app-comments [postId]="post.id"></app-comments>
+}
+</div>

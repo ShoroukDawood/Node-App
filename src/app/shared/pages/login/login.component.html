@@ -1,0 +1,29 @@
+
+<div class="bg-white p-8 rounded-lg">
+<h2 class="text-green-600 font-bold text-2xl mb-4 uppercase">Please Login ...!</h2>
+<form class="max-w-sm mx-auto" [formGroup]="loginForm" (ngSubmit)="btnSubmit()">
+
+
+    <div class="relative mb-5">
+        <input formControlName="email" type="text" id="email-address" class="block px-2.5 pb-1.5 pt-3 w-full text-sm text-green-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-green dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+        <label for="email-address" class="absolute text-sm text-green-500  duration-300 transform -translate-y-3 scale-75 top-1 z-10 origin-[0] bg-green dark:bg-green-900 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-3 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Enter Your Email...</label>
+    </div>
+     @if(this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors){
+  <div class="bg-red-200 border border-red-300 rounded-xl p-4 mb-4">
+    <p *ngIf="this.loginForm.get('email')?.errors?.['required']">This is Required</p>
+  </div>
+  }
+    <div class="relative  mb-5">
+        <input formControlName="password" type="text" id="password" class="block px-2.5 pb-1.5 pt-3 w-full text-sm text-green-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-green dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="" />
+        <label for="password" class="absolute text-sm text-green-500  duration-300 transform -translate-y-3 scale-75 top-1 z-10 origin-[0] bg-green dark:bg-green-900 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-3 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Enter Your Password...</label>
+    </div>
+       @if(this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors){
+  <div class="bg-red-200 border border-red-300 rounded-xl p-4 mb-4">
+    <p *ngIf="this.loginForm.get('password')?.errors?.['required']">This is Required</p>
+  </div>
+  }
+    <button  type="submit" class=" mt-5 text-green bg-blue-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+
+</form>
+<span class="text-green-600 font-semibold my-3 uppercase"><a routerLink="/register" class="pt-5">or registerNow?..</a></span>
+</div>
